@@ -12,6 +12,27 @@
   <!-- Internal CSS styles -->
   <style>
     /* Styling for the webpage */
+    
+    /* Image and its container styles */
+    .photo {
+      /* Positioning */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: block;
+    }
+
+    /* Image styles */
+    .photo img {
+      width: 300px; /* Width of the image */
+      object-fit: cover; /* Fits the image without stretching */
+      filter: grayscale(100%) contrast(120%); /* Image filters */
+      box-shadow: 10px 15px 25px 0 rgba(0, 0, 0, 0.2); /* Box shadow */
+      display: block;
+      transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); /* Transition effect */
+      margin-top: -10px; /* Top margin */
+    }
 
     /* Body styles */
     body {
@@ -40,26 +61,6 @@
       text-decoration: none; /* Removes underline */
     }
 
-    /* Image and its container styles */
-    .photo {
-      /* Positioning */
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: block;
-    }
-
-    /* Image styles */
-    .photo img {
-      width: 300px; /* Width of the image */
-      object-fit: cover; /* Fits the image without stretching */
-      filter: grayscale(100%) contrast(120%); /* Image filters */
-      box-shadow: 10px 15px 25px 0 rgba(0, 0, 0, 0.2); /* Box shadow */
-      display: block;
-      transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); /* Transition effect */
-      margin-top: -10px; /* Top margin */
-    }
 
     /* Hover effect on image */
     .photo:hover img {
