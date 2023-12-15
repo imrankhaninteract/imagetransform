@@ -1,109 +1,131 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- CSS styles -->
     <style>
+      /* Styling for the background and heading */
       body {
-        background: #dadada;
-        background-image: url("https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-        background-size: cover;
-        height: 100vh;
+        background: #dadada; /* Background color */
+        background-image: url("https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); /* Background image */
+        background-size: cover; /* Scale the background image to cover the entire element */
+        height: 100vh; /* Set the height of the body to 100% of the viewport height */
       }
+
+      /* Styling for the main heading */
       .heading {
-  font-family: 'Arial', sans-serif; 
-  font-weight: bold;
-  font-size: 72px; 
-  color: #007bff; 
-  text-align: center; 
-  text-transform: uppercase; 
-}
+        font-family: 'Arial', sans-serif; /* Font family */
+        font-weight: bold; /* Bold text */
+        font-size: 72px; /* Font size */
+        color: #007bff; /* Text color */
+        text-align: center; /* Center align text */
+        text-transform: uppercase; /* Convert text to uppercase */
+      }
+
+      /* Styling for links */
       a {
-        color: #111;
+        color: #111; /* Link color */
       }
+
+      /* Styling for the main photo container */
       .photo {
+        /* Positioning the container */
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: block;
+        top: 50%; /* Position from the top */
+        left: 50%; /* Position from the left */
+        transform: translate(-50%, -50%); /* Center the container */
+        display: block; /* Display as block element */
       }
+
+      /* Styling for the image inside the container */
       .photo img {
-        width: 300px;
-        
-        object-fit: cover;
-        filter: grayscale(100%) contrast(120%);
-        box-shadow: 10px 15px 25px 0 rgba(0, 0, 0, 0.2);
-        display: block;
-        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-        margin-top: -10px;
+        width: 300px; /* Set width of the image */
+        object-fit: cover; /* Resize the image to cover its container */
+        filter: grayscale(100%) contrast(120%); /* Apply grayscale and contrast */
+        box-shadow: 10px 15px 25px 0 rgba(0, 0, 0, 0.2); /* Add box shadow */
+        display: block; /* Display as block element */
+        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); /* Transition effect */
+        margin-top: -10px; /* Adjust top margin */
       }
+
+      /* Styling for the image on hover */
       .photo:hover img {
-        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1); /* Change box shadow on hover */
       }
+
+      /* Styling for the glow effect container */
       .photo .glow-wrap {
-        overflow: hidden;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        margin-top: -10px;
+        overflow: hidden; /* Hide overflowing content */
+        position: absolute; /* Positioning */
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        top: 0; /* Position from the top */
+        margin-top: -10px; /* Adjust top margin */
       }
+
+      /* Styling for the glow effect */
       .photo .glow {
-        display: block;
-        position: absolute;
-        width: 40%;
-        height: 200%;
-        background: rgba(255, 255, 255, 0.2);
-        top: 0;
-        filter: blur(5px);
-        transform: rotate(45deg) translate(-450%, 0);
-        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+        display: block; /* Display as block element */
+        position: absolute; /* Positioning */
+        width: 40%; /* Width of the glow effect */
+        height: 200%; /* Height of the glow effect */
+        background: rgba(255, 255, 255, 0.2); /* Background color */
+        top: 0; /* Position from the top */
+        filter: blur(5px); /* Apply blur effect */
+        transform: rotate(45deg) translate(-450%, 0); /* Transformation */
+        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); /* Transition effect */
       }
+
+      /* Styling for the glow effect on hover */
       .photo:hover .glow {
-        transform: rotate(45deg) translate(450%, 0);
-        transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transform: rotate(45deg) translate(450%, 0); /* Change transform on hover */
+        transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1); /* Transition effect */
       }
-      .photo:hover img,
-      .photo:hover .glow-wrap {
-        margin-top: 0;
-      }
+
+      /* Additional styling for the text at the bottom */
       h1 {
-        position: absolute;
-        z-index: 1;
-        transform: translate(-25%, -65%);
-        font-family: "Montserrat", sans-serif;
-        margin: 0;
-        line-height: 1.2;
+        position: absolute; /* Positioning */
+        z-index: 1; /* Stack order */
+        transform: translate(-25%, -65%); /* Transformation */
+        font-family: "Montserrat", sans-serif; /* Font family */
+        margin: 0; /* Remove margin */
+        line-height: 1.2; /* Line height */
       }
+
+      /* Styling for the author information */
       #author {
-        font-family: Helvetica, Arial;
-        text-transform: uppercase;
-        font-size: 14px;
-        text-decoration: none;
-        position: fixed;
-        bottom: 25px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: #888;
+        font-family: Helvetica, Arial; /* Font family */
+        text-transform: uppercase; /* Convert text to uppercase */
+        font-size: 14px; /* Font size */
+        text-decoration: none; /* Remove underline */
+        position: fixed; /* Positioning */
+        bottom: 25px; /* Position from the bottom */
+        left: 50%; /* Position from the left */
+        transform: translateX(-50%); /* Center horizontally */
+        color: #888; /* Text color */
       }
+
+      /* Styling for the author information on hover */
       #author:hover {
-        color: #111;
+        color: #111; /* Change text color on hover */
       }
     </style>
   </head>
   <body>
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat"
-      rel="stylesheet"
-    />
+    <!-- Include Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+
+    <!-- Main photo container with heading and image -->
     <a href="#" class="photo">
-      <h1 class="heading">Be yourself</h1>
+      <h1 class="heading">Be yourself</h1> <!-- Main heading -->
       <img
         src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-      />
+      /> <!-- Image -->
       <div class="glow-wrap">
-        <i class="glow"></i>
+        <i class="glow"></i> <!-- Glow effect -->
       </div>
     </a>
+
+    <!-- Author information -->
+    <div id="author">Author Name</div>
   </body>
 </html>
-
