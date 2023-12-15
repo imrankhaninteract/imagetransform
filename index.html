@@ -1,125 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Transform</title>
+  <!-- Meta information -->
+  <meta charset="UTF-8"> <!-- Declares character encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sets the viewport for responsive design -->
+  <title>Image Transform</title> <!-- Title of the webpage -->
 
- <!-- Include Google Fonts -->
-     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&family=Oswald&display=swap" rel="stylesheet">
-    <!-- CSS styles -->
-    <style>
-      /* Styling */
-      body {
-        background: #dadada url("https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat;
-        background-size: cover;
-        height: 100vh;
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-      }
+  <!-- External font styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&family=Oswald&display=swap" rel="stylesheet">
 
-      .heading {
-        font-weight: bold;
-        font-size: 72px;
-        color: #007bff;
-        text-align: center;
-        text-transform: uppercase;
-        margin-top: 0;
-      }
+  <!-- Internal CSS styles -->
+  <style>
+    /* Styling for the webpage */
 
-      a {
-        color: #111;
-        text-decoration: none;
-      }
+    /* Body styles */
+    body {
+      /* Background image */
+      background: #dadada url("https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat;
+      background-size: cover; /* Background image size */
+      height: 100vh; /* Full viewport height */
+      font-family: 'Arial', sans-serif; /* Font used for text */
+      margin: 0; /* Removes default margin */
+      padding: 0; /* Removes default padding */
+    }
 
-      .photo {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: block;
-      }
+    /* Heading styles */
+    .heading {
+      font-weight: bold; /* Bold font weight */
+      font-size: 72px; /* Font size */
+      color: #007bff; /* Text color */
+      text-align: center; /* Center-align text */
+      text-transform: uppercase; /* Uppercase text */
+      margin-top: 0; /* Top margin */
+    }
 
-      .photo img {
-        width: 300px;
-        object-fit: cover;
-        filter: grayscale(100%) contrast(120%);
-        box-shadow: 10px 15px 25px 0 rgba(0, 0, 0, 0.2);
-        display: block;
-        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-        margin-top: -10px;
-      }
+    /* Anchor (link) styles */
+    a {
+      color: #111; /* Text color */
+      text-decoration: none; /* Removes underline */
+    }
 
-      .photo:hover img {
-        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
-      }
+    /* Image and its container styles */
+    .photo {
+      /* Positioning */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: block;
+    }
 
-      .photo .glow-wrap {
-        overflow: hidden;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        margin-top: -10px;
-      }
+    /* Image styles */
+    .photo img {
+      width: 300px; /* Width of the image */
+      object-fit: cover; /* Fits the image without stretching */
+      filter: grayscale(100%) contrast(120%); /* Image filters */
+      box-shadow: 10px 15px 25px 0 rgba(0, 0, 0, 0.2); /* Box shadow */
+      display: block;
+      transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); /* Transition effect */
+      margin-top: -10px; /* Top margin */
+    }
 
-      .photo .glow {
-        display: block;
-        position: absolute;
-        width: 40%;
-        height: 200%;
-        background: rgba(255, 255, 255, 0.2);
-        top: 0;
-        filter: blur(5px);
-        transform: rotate(45deg) translate(-450%, 0);
-        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-      }
+    /* Hover effect on image */
+    .photo:hover img {
+      box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1); /* Shadow effect on hover */
+    }
 
-      .photo:hover .glow {
-        transform: rotate(45deg) translate(450%, 0);
-        transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-      }
+    /* Glow container styles */
+    .photo .glow-wrap {
+      overflow: hidden; /* Hides overflowing content */
+      position: absolute; /* Positioning */
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      top: 0; /* Positioned at the top */
+      margin-top: -10px; /* Top margin */
+    }
 
-      h1 {
-        position: absolute;
-        z-index: 1;
-        transform: translate(-25%, -65%);
-        font-family: "Montserrat", sans-serif;
-        margin: 0;
-        line-height: 1.2;
-      }
+    /* Glow effect styles */
+    .photo .glow {
+      display: block; /* Display as a block */
+      position: absolute; /* Positioning */
+      width: 40%; /* Width of the glow */
+      height: 200%; /* Height of the glow */
+      background: rgba(255, 255, 255, 0.2); /* Glow color with transparency */
+      top: 0; /* Positioned at the top */
+      filter: blur(5px); /* Blur effect */
+      transform: rotate(45deg) translate(-450%, 0); /* Transformation */
+      transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); /* Transition effect */
+    }
 
-      #author {
-        font-family: Helvetica, Arial;
-        text-transform: uppercase;
-        font-size: 14px;
-        text-decoration: none;
-        position: fixed;
-        bottom: 25px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: #888;
-      }
+    /* Hover effect on glow */
+    .photo:hover .glow {
+      transform: rotate(45deg) translate(450%, 0); /* Transform on hover */
+      transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1); /* Transition on hover */
+    }
 
-      #author:hover {
-        color: #111;
-      }
-    </style>
-   
-  </head>
-  <body>
-    <!-- Main photo container with heading and image -->
-    <a href="#" class="photo">
-      <h1 class="heading">Be yourself</h1> <!-- Main heading -->
-      <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" /> <!-- Image -->
-      <div class="glow-wrap">
-        <i class="glow"></i> <!-- Glow effect -->
-      </div>
-    </a>
+    /* Heading 1 styles */
+    h1 {
+      position: absolute; /* Positioning */
+      z-index: 1; /* Stack order */
+      transform: translate(-25%, -65%); /* Transformation */
+      font-family: "Montserrat", sans-serif; /* Font family */
+      margin: 0; /* Removes default margin */
+      line-height: 1.2; /* Line height */
+    }
 
-    <!-- Author information -->
-    <div id="author">Author Name</div>
-  </body>
+    /* Author information styles */
+    #author {
+      font-family: Helvetica, Arial; /* Font family */
+      text-transform: uppercase; /* Uppercase text */
+      font-size: 14px; /* Font size */
+      text-decoration: none; /* Removes underline */
+      position: fixed; /* Positioning */
+      bottom: 25px; /* Positioned at the bottom */
+      left: 50%; /* Positioned in the center horizontally */
+      transform: translateX(-50%); /* Center alignment */
+      color: #888; /* Text color */
+    }
+
+    /* Hover effect on author information */
+    #author:hover {
+      color: #111; /* Text color on hover */
+    }
+  </style>
+</head>
+<body>
+  <!-- Image link -->
+  <a href="#" class="photo">
+    <!-- Heading -->
+    <h1 class="heading">Be yourself</h1>
+    <!-- Image -->
+    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+    <!-- Glow effect container -->
+    <div class="glow-wrap">
+      <i class="glow"></i> 
+    </div>
+  </a>
+
+  <!-- Author information -->
+  <div id="author">Author Name</div>
+</body>
 </html>
-
