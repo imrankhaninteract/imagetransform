@@ -1,0 +1,13 @@
+Creating a basic webpage involves a sequence of steps using HTML and CSS. To begin, open a text editor or coding environment to build the webpage's structure and style.
+
+Start by specifying the document type as HTML5. This sets the stage for HTML coding. Within an opening HTML tag, initiate the HTML document. In the document's head section, define essential meta tags, including character encoding and viewport settings, for proper display and functionality.
+
+Next, provide a title for the webpage inside title tags, indicating the page's purpose or content. Incorporate a link tag within the head section to reference external font styles, enhancing the page's typography.
+
+Following this, integrate an internal style tag to write CSS rules governing the webpage's appearance. Define CSS properties for various elements like photo positioning, image styles, body backgrounds, heading styles, anchor styles, and hover effects. These rules structure and beautify the webpage's layout and visual aspects.
+
+Within the body section of the HTML document, create an anchor element that links to a particular destination. Inside a photo tag, include elements like an h1 tag for a prominent heading and an img tag specifying the image source. Implement a div tag to encapsulate the glow effect container, using an i tag for the actual glow effect.
+
+Lastly, outside the photo tag, add a div element to display author information. Save the HTML file with a suitable name and ".html" extension. To see your webpage in action, open the saved file in a web browser.
+
+This step-by-step process outlines the sequential actions involved in constructing a basic webpage using HTML and CSS. Each step contributes to defining the webpage's structure, content, and visual presentation.
